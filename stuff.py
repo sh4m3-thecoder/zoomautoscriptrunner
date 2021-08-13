@@ -1,16 +1,9 @@
 import datetime as dt
 import subprocess, time, pyautogui
 
-# Get day or string from
+# Get day from strftime
 todaysDayName = dt.date.today().strftime("%a")
 timeRightNow = dt.datetime.now().strftime("%H.%M")
-
-
-meetingPianoID = "87205157552"
-meetingPianoPassword = "V5Twix"
-
-class9HarvardID = "94966897069"
-class9HarvardPassword = "harvard9"
 
 
 def joinMeeting(meetingID, meetingPassword, duration):
@@ -33,8 +26,10 @@ def joinMeeting(meetingID, meetingPassword, duration):
 
 
 if todaysDayName != "Sat" or todaysDayName != "Sun":
-    subprocess.Popen("C:\\Users\\mahes\\AppData\\Roaming\\Zoom\\bin\\Zoom.exe")
-    joinMeeting(class9HarvardID, class9HarvardPassword, duration=5)
+    subprocess.Popen(
+        "C:\\Users\\my username duh\\AppData\\Roaming\\Zoom\\bin\\Zoom.exe"
+    )
+    joinMeeting(duration=5)
 
 else:
     pass
