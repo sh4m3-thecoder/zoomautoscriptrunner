@@ -1,14 +1,15 @@
-import datetime as dt
+from datetime import date, datetime
 import subprocess, time, pyautogui
-
-# Get day from strftime
-todaysDayName = dt.date.today().strftime("%a")
-timeRightNow = dt.datetime.now().strftime("%H.%M")
 
 
 def joinMeeting(meetingID, meetingPassword, duration):
     zoomJoinButtonX = 774
     zoomJoinButtonY = 462
+
+    # launch zoom
+    subprocess.Popen(
+        "C:\\Users\\[my username here]\\AppData\\Roaming\\Zoom\\bin\\Zoom.exe"
+    )
 
     pyautogui.moveTo(
         x=zoomJoinButtonX,
@@ -19,17 +20,19 @@ def joinMeeting(meetingID, meetingPassword, duration):
     pyautogui.click(zoomJoinButtonX, zoomJoinButtonY)
     time.sleep(1.5)
     pyautogui.write(meetingID, interval=0.1)
-    pyautogui.click(1000, 700)
+    pyautogui.press("enter")
     time.sleep(2.5)
-    pyautogui.write(meetingPassword, interval=0.1)
-    pyautogui.click(1000, 700)
+    pyautogui.write(meetingPassword, interval=0.05)
+    pyautogui.press("enter")
 
 
-if todaysDayName != "Sat" or todaysDayName != "Sun":
-    subprocess.Popen(
-        "C:\\Users\\my username duh\\AppData\\Roaming\\Zoom\\bin\\Zoom.exe"
-    )
-    joinMeeting(duration=5)
+# Check fuction if it's weekdays or weekends
+def checkDayAndJoinMeeting():
+    if datetime.today().weekday() == 5 or datetime.today().weekday() == 6:
+        return False
+    else:
+        joinMeeting()
 
-else:
-    pass
+
+checkDayAndJoinMeeting()
+# joinMeeting(class9HarvardID, class9HarvardPassword, 5)
