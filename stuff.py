@@ -1,9 +1,6 @@
 from datetime import date, datetime
 import subprocess, time, pyautogui
 
-# Get day or string from
-
-
 meetingPianoID = "87205157552"
 meetingPianoPassword = "V5Twix"
 
@@ -41,5 +38,5 @@ def checkDayAndJoinMeeting():
         joinMeeting(class9HarvardID, class9HarvardPassword, 5)
 
 
-# checkDayAndJoinMeeting()
-joinMeeting(class9HarvardID, class9HarvardPassword, 5)
+checkDayAndJoinMeeting()
+# joinMeeting(class9HarvardID, class9HarvardPassword, 5)
